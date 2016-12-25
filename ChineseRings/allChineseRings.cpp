@@ -104,6 +104,7 @@ int main()
 {
 	string s;
 	cin >> s;
+
 	Ring dring(s);
 	dring.startDownRing();
 	dring.totalCnt();

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allChineseRings.cpp" />
+    <ClCompile Include="ChineseRings.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{75379E07-713A-4ECC-B61B-06A0B1BA3EF1}</ProjectGuid>

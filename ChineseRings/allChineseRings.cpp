@@ -44,11 +44,9 @@ Ring::Ring(string s)
 
 void Ring::UpRing(int n)  //Upring是DownRing的逆过程.  
 {
-	//if (n > 1 && stRing[n - 1] == '1')n--;//如果当环在轴上，则后移一位。
-	//while (n >= 1 && stRing[n - 1] == '1')n--;
 	if (n > 0)
 	{
-		if (n > 1 && stRing[n - 2] == '0') UpRing(n - 1);//更改
+		if (n > 1 && stRing[n - 2] == '0') UpRing(n - 1);
 		if (n > 2) DownRing(n - 2);
 		if (stRing[n - 1] == '0')
 		{
@@ -56,29 +54,23 @@ void Ring::UpRing(int n)  //Upring是DownRing的逆过程.
 			++s_nCnt;
 			cout << "上第" << n << "环" << endl;
 		}
-		//if (n > 1 && stRing[n - 2] == '0')n++;//如果下一个环不在轴上，则后移一位
-		if (n > 1 && stRing[n - 2] == '0') UpRing(n - 1);//
-		if (n > 2) UpRing(n - 2);//原有的
-		//if (n > 1) UpRing(n - 1);//试验
-		//if (n > 1 && stRing[n - 1] == '1') DownRing(n - 1);//
+		if (n > 1 && stRing[n - 2] == '0') UpRing(n - 1);
+		if (n > 2) UpRing(n - 2);
 	}
 }
 
 void Ring::DownRing(int n)
 {
-	//if (n > 1 && stRing[n - 1] == '0')n--;//如果当前环在轴下，则前移一位
 	while (n >= 1 && stRing[n - 1] == '0')n--;
 	if (n > 0)
 	{
 		if (n > 1 && stRing[n - 2] == '0') UpRing(n - 1);//
 		if (n > 2) DownRing(n - 2);
-		//if (stRing[n - 1] == '1')
-		//{
-			stRing[n - 1] = '0';
-			++s_nCnt;
-			cout << "下第" << n << "环" << endl;
-		//}
-		//if (n > 1 && stRing[n - 2] == '0')n--;//如果下一个环在轴上，则前移一位
+
+		stRing[n - 1] = '0';
+		++s_nCnt;
+		cout << "下第" << n << "环" << endl;
+
 		if (n > 2) UpRing(n - 2);
 		if (n > 1) DownRing(n - 1);
 	}
